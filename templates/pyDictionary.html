@@ -1,0 +1,242 @@
+<head>
+    <style>
+        h1{
+            text-align: center;
+            background-color: rgb(12, 48, 209);
+            color:white;
+        }
+
+        h2{
+            color: rgb(252, 13, 13);
+        }
+
+        h3{
+            color: rgba(31, 21, 177, 0.836);
+        }
+
+        p {
+            border-left: 6px solid red;
+            background-color: rgb(20, 202, 235);
+            font-size: large;
+          }
+
+    </style>
+</head>
+<div class="w3-col l10 m12" id="main" style="background-color:powderblue;">
+    <div id="mainLeaderboard" style="overflow:hidden;">
+
+
+    </div>
+    <h1>Python <span class="color_h1">Dictionaries</span></h1>
+
+
+    <hr>
+
+    <div class="w3-codeline notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+            thisdict = {<br><span class="pythonnumbercolor" style="color:red">
+            </span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"brand"</span>: <span
+                class="pythonstringcolor" style="color:brown">"Ford"</span>,<br><span class="pythonnumbercolor"
+                style="color:red">
+            </span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"model"</span>: <span
+                class="pythonstringcolor" style="color:brown">"Mustang"</span>,<br><span class="pythonnumbercolor"
+                style="color:red">
+            </span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"year"</span>: <span
+                class="pythonnumbercolor" style="color:red">1964</span><br><span class="pythonnumbercolor"
+                style="color:red">
+            </span>}<span class="pythonnumbercolor" style="color:red">
+            </span> </span></div>
+
+    <hr>
+
+    <h2>Dictionary</h2>
+
+    <p>Dictionaries are used to store data values in key:value pairs.</p>
+
+    <p>A dictionary is a collection which is ordered*, changeable and do not
+        allow duplicates.</p>
+
+    <div class="w3-panel w3-note">
+        <p>As of Python version 3.7, dictionaries are <em>ordered</em>.
+            In Python 3.6 and earlier, dictionaries are <em>unordered</em>.</p>
+    </div>
+
+    <p>Dictionaries are written with curly brackets, and have keys and values:</p>
+
+    <div class="w3-example">
+        <h3>Example</h3>
+        <p>Create and print a dictionary:</p>
+        <div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+                thisdict =<span class="pythonnumbercolor" style="color:red"> </span>{<br><span class="pythonnumbercolor"
+                    style="color:red">
+                </span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"brand"</span>: <span
+                    class="pythonstringcolor" style="color:brown">"Ford"</span>,<br><span class="pythonnumbercolor"
+                    style="color:red">
+                </span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"model"</span>: <span
+                    class="pythonstringcolor" style="color:brown">"Mustang"</span>,<br><span class="pythonnumbercolor"
+                    style="color:red">
+                </span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"year"</span>: <span
+                    class="pythonnumbercolor" style="color:red">1964</span><br><span class="pythonnumbercolor"
+                    style="color:red">
+                </span>}<br>
+                <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thisdict)<br><span
+                    class="pythonnumbercolor" style="color:red">
+                </span> </span></div>
+
+    </div>
+
+    <hr>
+    <h2>Dictionary Items</h2>
+
+    <p>Dictionary items are ordered, changeable, and does not allow duplicates.</p>
+
+    <p>Dictionary items are presented in key:value pairs, and can be referred to by
+        using the key name.</p>
+    <div class="w3-example">
+        <h3>Example</h3>
+        <p>Print the "brand" value of the dictionary:</p>
+        <div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+                thisdict =<span class="pythonnumbercolor" style="color:red"> </span>{<br><span class="pythonnumbercolor"
+                    style="color:red">
+                </span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"brand"</span>: <span
+                    class="pythonstringcolor" style="color:brown">"Ford"</span>,<br><span class="pythonnumbercolor"
+                    style="color:red">
+                </span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"model"</span>: <span
+                    class="pythonstringcolor" style="color:brown">"Mustang"</span>,<br><span class="pythonnumbercolor"
+                    style="color:red">
+                </span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"year"</span>: <span
+                    class="pythonnumbercolor" style="color:red">1964</span><br><span class="pythonnumbercolor"
+                    style="color:red">
+                </span>}<br>
+                <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thisdict[<span
+                    class="pythonstringcolor" style="color:brown">"brand"</span>])<br><span class="pythonnumbercolor"
+                    style="color:red">
+                </span> </span></div>
+
+    </div>
+
+    <hr>
+
+    <h2>Ordered or Unordered?</h2>
+
+    <div class="w3-panel w3-note">
+        <p>As of Python version 3.7, dictionaries are <em>ordered</em>.
+            In Python 3.6 and earlier, dictionaries are <em>unordered</em>.</p>
+    </div>
+
+    <p>When we say that dictionaries are ordered, it means that the items have a defined order, and that order will not
+        change.</p>
+
+
+    <p>Unordered means that the items does not
+        have a defined order, you cannot refer to an item by using an index.</p>
+
+    <hr>
+
+    <h2>Changeable</h2>
+
+    <p>Dictionaries are changeable, meaning that we can change, add or remove items after the
+        dictionary has been created.</p>
+
+    <hr>
+
+    <h2>Duplicates Not Allowed</h2>
+    <p>Dictionaries cannot have two items with the same key:</p>
+    <div class="w3-example">
+        <h3>Example</h3>
+        <p>Duplicate values will overwrite existing values:</p>
+        <div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+                thisdict =<span class="pythonnumbercolor" style="color:red"> </span>{<br><span class="pythonnumbercolor"
+                    style="color:red">
+                </span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"brand"</span>: <span
+                    class="pythonstringcolor" style="color:brown">"Ford"</span>,<br><span class="pythonnumbercolor"
+                    style="color:red">
+                </span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"model"</span>: <span
+                    class="pythonstringcolor" style="color:brown">"Mustang"</span>,<br><span class="pythonnumbercolor"
+                    style="color:red">
+                </span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"year"</span>: <span
+                    class="pythonnumbercolor" style="color:red">1964</span>,<br>&nbsp; <span class="pythonstringcolor"
+                    style="color:brown">"year"</span>: <span class="pythonnumbercolor"
+                    style="color:red">2020</span><br><span class="pythonnumbercolor" style="color:red">
+                </span>}<br>
+                <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thisdict) </span></div>
+
+    </div>
+
+    <hr>
+
+
+    <h2>Dictionary Length</h2>
+
+    <p>To determine how many items a dictionary has, use the <code class="w3-codespan">
+len()</code> function:</p>
+
+    <div class="w3-example">
+        <h3>Example</h3>
+        <p>Print the number of items in the dictionary:</p>
+        <div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+                <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(<span class="pythonkeywordcolor"
+                    style="color:mediumblue">len</span>(thisdict))<span class="pythonnumbercolor" style="color:red">
+                </span> </span></div>
+
+    </div>
+
+    <hr>
+
+    <h2>Dictionary Items - Data Types</h2>
+
+    <p>The values in dictionary items can be of any data type:</p>
+
+    <div class="w3-example">
+        <h3>Example</h3>
+        <p>String, int, boolean, and list data types:</p>
+        <div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+                thisdict =<span class="pythonnumbercolor" style="color:red"> </span>{<br><span class="pythonnumbercolor"
+                    style="color:red">
+                </span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"brand"</span>: <span
+                    class="pythonstringcolor" style="color:brown">"Ford"</span>,<br><span class="pythonnumbercolor"
+                    style="color:red">
+                </span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"electric"</span>: <span
+                    class="pythonkeywordcolor" style="color:mediumblue">False</span>,<br><span class="pythonnumbercolor"
+                    style="color:red">
+                </span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"year"</span>: <span
+                    class="pythonnumbercolor" style="color:red">1964</span>,<br>&nbsp; <span class="pythonstringcolor"
+                    style="color:brown">"colors"</span>: [<span class="pythonstringcolor"
+                    style="color:brown">"red"</span>, <span class="pythonstringcolor"
+                    style="color:brown">"white"</span>, <span class="pythonstringcolor"
+                    style="color:brown">"blue"</span>]<br><span class="pythonnumbercolor" style="color:red">
+                </span>} </span></div>
+
+    </div>
+
+    <hr>
+    <h2>type()</h2>
+
+    <p>From Python's perspective, dictionaries are defined as objects with the data type 'dict':</p>
+
+    <div class="w3-codeline notranslate">
+        &lt;class 'dict'&gt;
+    </div>
+
+    <div class="w3-example">
+        <h3>Example</h3>
+        <p>Print the data type of a dictionary:</p>
+        <div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+                thisdict =<span class="pythonnumbercolor" style="color:red"> </span>{<br><span class="pythonnumbercolor"
+                    style="color:red">
+                </span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"brand"</span>: <span
+                    class="pythonstringcolor" style="color:brown">"Ford"</span>,<br><span class="pythonnumbercolor"
+                    style="color:red">
+                </span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"model"</span>: <span
+                    class="pythonstringcolor" style="color:brown">"Mustang"</span>,<br><span class="pythonnumbercolor"
+                    style="color:red">
+                </span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"year"</span>: <span
+                    class="pythonnumbercolor" style="color:red">1964</span><br><span class="pythonnumbercolor"
+                    style="color:red">
+                </span>}<br>
+                <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(<span class="pythonkeywordcolor"
+                    style="color:mediumblue">type</span>(thisdict)) </span></div>
+        </div>
+
+    <hr>
+
+</div>

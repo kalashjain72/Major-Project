@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Courses</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/main.css"/>
+    <style>
+        button {
+        cursor:pointer;
+        border:none;
+        decoration:none;
+        background:blue;
+        color:white;
+        padding: 7px 18px;
+        border-radius:3px;
+        }
+    </style>
+</head>
+<body style="background:#8d8d8d;"  >
+<!--<div class="container-fluid text-center top-container"><img style="height:150px" src="/static/uta-logo-200.png" ></div>-->
+<div class="container" style="background:#edf0ff; margin-top:50px; padding:3px;">
+    <header>
+        <nav style="background:white; padding:3px;">
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="/signin0" class="nav-link ">Classes</a></li>
+                <li class="nav-item"><a href="" class="nav-link active">My Profile</a></li>
+                <li class="nav-item"><a href="/logout" class="nav-link">LogOut</a></li>
+                <li class="nav-item"><button id="doubt-button" class="nav-link" onclick="openChat()">Ask Doubt</button></li>
+                
+            </ul>
+        </nav>
+        <hr style="clear:both">
+    </header>
+    <h1>My Courses</h1>
+
+
+
+    <!--  Display the Term and Year here --->
+    <!---<h3>Term: Fall 2019</h3>--->
+
+    <div>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">Course ID</th>
+                <th scope="col">Title</th>
+                <th scope="col">Credits</th>
+                
+            </tr>
+            </thead>
+            <tbody>
+
+            <!-- Construct the rest of courses here -->
+            {% for item in data %}
+  <tr>
+    <td>{{ item.1 }}</td>
+    <td>{{ item.2 }}</td>
+    <td>{{ item.3 }}</td>
+    <td>
+    
+      <button type="Button">
+        <a style="style:none;text-decoration:none;color:white;" href="/{{ item.1 }}">Start Learning</a>
+      </button>
+    </td>
+    <td>
+      <button type="Button">
+        <a style="style:none;text-decoration:none;color:white;" href="/UnEnroll?courseid={{ item.1 }}">Unenroll</a>
+      </button>
+    </td>
+  </tr>
+{% endfor %}
+
+
+
+            </tbody>
+        </table>
+
+    </div>
+
+
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+WvvuCbCr2fR2x4c9IXhjmxwGZwMIfpV4PBmGf3j4uyG+w6"
+        crossorigin="anonymous"></script>
+<script>
+    function openChat() {
+        window.open("/doubts", "_blank", "width=600,height=800");
+    }
+</script>
+
+</body>
+</html>

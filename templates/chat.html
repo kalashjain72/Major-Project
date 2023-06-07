@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: content: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+    <!-- monaca resources -->
+    <script src="components/loader.js"></script>
+    <link rel="stylesheet" href="components/loader.css">
+    <!-- css -->
+    <title>iChatGPT</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            flex: 1;
+            padding: 20px;
+            padding-bottom: 70px !important;
+            display: flex;
+            flex-direction: column;
+            overflow-y: scroll;
+            scroll-behavior: smooth;
+        }
+
+        .message {
+            max-width: 80%;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .user-message {
+            align-self: flex-end;
+            background-color: #2D81D8;
+            color: white;
+        }
+
+        .bot-message {
+            align-self: flex-start;
+            background-color: #f2f2f2;
+        }
+
+        .chat-form {
+            display: flex;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 10px;
+            background-color: white;
+            box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+
+        .chat-input {
+            flex: 1;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            margin-right: 10px;
+            font-size: 16px;
+        }
+
+        .chat-send {
+            background-color: #2D81D8;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .loader {
+            display: none;
+            margin-left: 10px;
+            margin-top: 10px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #2D81D8;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container messages">
+        <!-- Chat messages will be added here -->
+    </div>
+
+    <form class="chat-form" id="chat-form">
+        <input type="text" class="chat-input" id="chat-input" placeholder="Ask me...">
+        <button type="submit" class="chat-send" id="chat-send">
+            <img src="send-icon.png" width="20px" height="20px" alt="Send" id="send-img">
+        </button>
+        <div class="loader"></div>
+    </form>
+
+    <!-- javascript -->
+    <script>
+        // DOM
+        const chatForm = document.querySelector('#chat-form');
+        const chatInput = document.querySelector('#chat-input');
+        const chatSend = document.querySelector('#chat-send');
+        const messageContainer = document.querySelector('.container');
+        const sendImg = document.querySelector('#send-img');
+        const loader = document.querySelector('.loader');
+
+        // OpenAI API
+        const OPENAI_MODEL = 'gpt-3.5-turbo'; // gpt-3.5-turbo, gpt-3.5-turbo-0301
+        const OPENAI_URL = 'https://api.openai.com/v1/chat/completions';
+        // Input Your OpenAI API Key Here.
+        // You can sign up and get API Key from here
+        // https://platform.openai.com/account/api-keys
+        let apiKey = 'sk-vBZEOeCXPHO4iTKg1z2kT3BlbkFJOyCJJiDuC9EhgV90AjmDss';
+        const messages = []; // store previous messages to remember whole conversation
+
+        // Function to add a chat message to the container
+        function addMessage(message, isUser) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('message');
+            messageDiv.classList.add(isUser ? 'user-message' : 'bot-message');
+            messageDiv.textContent = message;
+            messageContainer.appendChild(messageDiv);
+
+            // Scroll to the bottom of the chat container
+            messageContainer.scrollTop = messageContainer.scrollHeight;
+        }
+
+        // Function to handle user input
+        function handleUserInput(event) {
+            event.preventDefault();
+            const message = chatInput.value.trim();
+            if (message !== '') {
+                messages.push({
+                    'role': 'user',
+                    'content': message
+                });
+                addMessage(message, true);
+                chatInput.value = '';
+                showLoader();
+                // Other request body from here https://platform.openai.com/docs/api-reference/chat/create
+                fetch(OPENAI_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + apiKey
+                    },
+                    body: JSON.stringify({
+                        'model': OPENAI_MODEL,
+                        'messages': messages
+                    })
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        hideLoader();
+                        const responseMessage = data.choices[0].message;
+                        addMessage(responseMessage.content, false);
+                        messages.push(responseMessage);
+                    })
+                    .catch(() => {
+                        hideLoader();
+                        addMessage('Oops! Something went wrong. Please try again later.', false);
+                    });
+            }
+        }
+
+        // Function to show the loader icon
+        function showLoader() {
+            loader.style.display = 'inline-block';
+            chatSend.disabled = true;
+        }
+
+        // Function to hide the loader icon
+        function hideLoader() {
+            loader.style.display = 'none';
+            chatSend.disabled = false;
+        }
+
+        // Add an event listener to the form
+        chatForm.addEventListener('submit', handleUserInput);
+    </script>
+</body>
+</html>

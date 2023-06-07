@@ -1,0 +1,258 @@
+<head>
+    <style>
+        h1{
+            text-align: center;
+            background-color: rgb(12, 48, 209);
+            color:white;
+        }
+
+        h2{
+            color: rgb(252, 13, 13);
+        }
+
+        h3{
+            color: rgba(31, 21, 177, 0.836);
+        }
+
+        p {
+            border-left: 6px solid red;
+            background-color: rgb(20, 202, 235);
+            font-size: large;
+          }
+
+    </style>
+</head>
+<div class="w3-col l10 m12" id="main" style="background-color:powderblue;">
+    <div id="mainLeaderboard" style="overflow:hidden;">
+
+
+    </div>
+    <h1>Python <span class="color_h1">Arrays</span></h1>
+    <hr>
+    <div class="w3-panel w3-note">
+        <p><strong>Note:</strong> Python does not have built-in support for Arrays,
+            but Python Lists can be used instead.</p>
+    </div>
+    <hr>
+
+    <h2>Arrays</h2>
+
+    <div class="w3-panel w3-note">
+        <p><strong>Note:</strong> This page shows you how to use LISTS as ARRAYS, however, to work with arrays in Python
+            you will have to import
+            a library, like the NumPy library.</p>
+    </div>
+
+    <p>Arrays are used to store multiple values in one single variable:</p>
+    <div class="w3-example">
+        <h3>Example</h3>
+        <p>Create an array containing car names:</p>
+        <div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span
+                    class="pythonnumbercolor" style="color:red">
+                </span> cars = [<span class="pythonstringcolor" style="color:brown">"Ford"</span>, <span
+                    class="pythonstringcolor" style="color:brown">"Volvo"</span>, <span class="pythonstringcolor"
+                    style="color:brown">"BMW"</span>] </span></div>
+
+    </div>
+
+    <hr>
+
+    <h2>What is an Array?</h2>
+    <p>An array is a special variable, which can hold more than one value at a time.</p>
+    <p>If you have a list of items (a list of car names, for example), storing the
+        cars in single variables could look like this:</p>
+
+    <div class="w3-code w3-border notranslate jsHigh"><span class="jscolor" style="color:black">
+            <div>
+                car1 = <span class="jsstringcolor" style="color:brown">"Ford"</span><br><span class="jsnumbercolor"
+                    style="color:red">
+                </span> car2 = <span class="jsstringcolor" style="color:brown">"Volvo"</span><br><span
+                    class="jsnumbercolor" style="color:red">
+                </span> car3 = <span class="jsstringcolor" style="color:brown">"BMW"</span>
+            </div>
+        </span></div>
+
+    <p>However, what if you want to loop through the cars and find a specific one?
+        And what if you had not 3 cars, but 300?</p>
+    <p>The solution is an array!</p>
+    <p>An array can hold many values under a single name, and you can
+        access the values by referring to an index number.</p>
+
+
+    <hr>
+
+
+    <h2>Access the Elements of an Array</h2>
+
+
+    <p>You refer to an array element by referring to the <em>index number</em>.</p>
+    <div class="w3-example">
+        <h3>Example</h3>
+        <p>Get the value of the first array item:</p>
+        <div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span
+                    class="pythonnumbercolor" style="color:red">
+                </span> x = cars[<span class="pythonnumbercolor" style="color:red">0</span>] </span></div>
+
+    </div>
+
+    <div class="w3-example">
+        <h3>Example</h3>
+        <p>Modify the value of the first array item:</p>
+        <div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span
+                    class="pythonnumbercolor" style="color:red">
+                </span> cars[<span class="pythonnumbercolor" style="color:red">0</span>] = <span
+                    class="pythonstringcolor" style="color:brown">"Toyota"</span> </span></div>
+
+    </div>
+
+    <hr>
+
+    <h2>The Length of an Array</h2>
+
+    <p>Use the <code class="w3-codespan">len()</code> method to return the length of
+        an array (the number of elements in an array).</p>
+
+    <div class="w3-example">
+        <h3>Example</h3>
+        <p>Return the number of elements in the <code class="w3-codespan">cars</code>
+            array:</p>
+        <div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span
+                    class="pythonnumbercolor" style="color:red">
+                </span> x = <span class="pythonkeywordcolor" style="color:mediumblue">len</span>(cars) </span></div>
+
+    </div>
+
+    <div class="w3-panel w3-note">
+        <p><strong>Note:</strong> The length of an array is always one more than the highest array index.</p>
+    </div>
+
+    <hr>
+
+
+    <h2>Looping Array Elements</h2>
+
+    <p>You can use the <code class="w3-codespan">for in</code> loop to loop through all the elements of an array.</p>
+    <div class="w3-example">
+        <h3>Example</h3>
+        <p>Print each item in the <code class="w3-codespan">cars</code> array:</p>
+        <div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span
+                    class="pythonnumbercolor" style="color:red">
+                </span> <span class="pythonkeywordcolor" style="color:mediumblue">for</span> x <span
+                    class="pythonkeywordcolor" style="color:mediumblue">in</span> cars:<br>&nbsp; <span
+                    class="pythonkeywordcolor" style="color:mediumblue">print</span>(x) </span></div>
+
+    </div>
+
+    <hr>
+
+    <h2>Adding Array Elements</h2>
+
+    <p>You can use the <code class="w3-codespan">append()</code> method to add an element to an array.</p>
+    <div class="w3-example">
+        <h3>Example</h3>
+        <p>Add one more element to the <code class="w3-codespan">cars</code> array:</p>
+        <div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+                cars.append(<span class="pythonstringcolor" style="color:brown">"Honda"</span>) </span></div>
+
+    </div>
+
+    <hr>
+
+    <h2>Removing Array Elements</h2>
+
+    <p>You can use the <code class="w3-codespan">pop()</code> method to remove an element from the array.</p>
+    <div class="w3-example">
+        <h3>Example</h3>
+        <p>Delete the second element of the <code class="w3-codespan">cars</code> array:</p>
+        <div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+                cars.pop(<span class="pythonnumbercolor" style="color:red">1</span>) </span></div>
+    </div>
+
+    <p>You can also use the <code class="w3-codespan">remove()</code> method to remove an element from the array.</p>
+    <div class="w3-example">
+        <h3>Example</h3>
+        <p>Delete the element that has the value "Volvo":</p>
+        <div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+                cars.remove(<span class="pythonstringcolor" style="color:brown">"Volvo"</span>) </span></div>
+
+    </div>
+    <div class="w3-panel w3-note">
+        <p><strong>Note:</strong> The list's <code class="w3-codespan">remove()</code> method
+            only removes the first occurrence of the specified value.</p>
+    </div>
+
+    <hr>
+    <h2>Array Methods</h2>
+    <p>Python has a set of built-in methods that you can use on lists/arrays.</p>
+
+    <table class="ws-table-all notranslate">
+        <tbody>
+            <tr>
+                <th>Method</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td><a href="">append()</a></td>
+                <td>Adds an element at
+                    the end of the list</td>
+            </tr>
+            <tr>
+                <td><a href="">clear()</a></td>
+                <td>Removes all the
+                    elements from the list</td>
+            </tr>
+            <tr>
+                <td><a href="">copy()</a></td>
+                <td>Returns a copy of the
+                    list</td>
+            </tr>
+            <tr>
+                <td><a href="">count()</a></td>
+                <td>Returns the number of
+                    elements with the specified value</td>
+            </tr>
+            <tr>
+                <td><a href="">extend()</a></td>
+                <td>Add the elements of a
+                    list (or any iterable), to the end of the current list</td>
+            </tr>
+            <tr>
+                <td><a href="">index()</a></td>
+                <td>Returns the index of
+                    the first element with the specified value</td>
+            </tr>
+            <tr>
+                <td><a href="">insert()</a></td>
+                <td>Adds an element at
+                    the specified position</td>
+            </tr>
+            <tr>
+                <td><a href="">pop()</a></td>
+                <td>Removes the element at the
+                    specified position</td>
+            </tr>
+            <tr>
+                <td><a href="">remove()</a></td>
+                <td>Removes the first
+                    item with the specified value</td>
+            </tr>
+            <tr>
+                <td><a href="">reverse()</a></td>
+                <td>Reverses the order
+                    of the list</td>
+            </tr>
+            <tr>
+                <td><a href="">sort()</a></td>
+                <td>Sorts the list</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="w3-panel w3-note">
+        <p><strong>Note:</strong> Python does not have built-in support for Arrays,
+            but Python Lists can be used instead.</p>
+    </div>
+
+    <hr>
+
+
+</div>
